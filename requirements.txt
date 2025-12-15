@@ -1,0 +1,9 @@
+torch
+torchvision
+omegaconf
+tqdm
+torchmetrics
+timm
+scipy
+pytorch_fid
+transformers

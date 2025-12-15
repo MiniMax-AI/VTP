@@ -1,0 +1,60 @@
+ckpt_path: # 1. lightningdit ckpt path, modify while inference
+data:
+  raw_image_path: /path/to/imagenet/train
+  data_path: generation/latent_stats/vtp_s # 2. latents path. the default path has latents_stats for inference
+  fid_reference_file: /path/to/VIRTUAL_imagenet256_labeled.npz  # 3. fid reference file
+  image_size: 256
+  latent_multiplier: 1.0
+  latent_norm: true
+  num_classes: 1000
+  num_workers: 8
+model:
+  in_chans: 64
+  model_type: LightningDiT-XL/1
+  use_qknorm: false
+  use_rmsnorm: true
+  use_rope: true
+  use_swiglu: true
+  wo_shift: false
+optimizer:
+  beta2: 0.95
+  lr: 0.0002
+sample:
+  atol: 1.0e-06
+  cfg_interval_start: 0.0
+  cfg_scale: 1.0
+  fid_num: 50000
+  likelihood: false
+  mode: ODE
+  num_sampling_steps: 250
+  per_proc_batch_size: 4
+  reverse: false
+  rtol: 0.001
+  sampling_method: euler
+  timestep_shift: 0.075
+train:
+  ckpt: null
+  ckpt_every: 20000
+  exp_name: vtp_s_dit_xl
+  global_batch_size: 1024
+  global_seed: 0
+  log_every: 100
+  max_steps: 100000
+  output_dir: output/generation
+  resume: false
+transport:
+  loss_weight: null
+  path_type: Linear
+  prediction: velocity
+  sample_eps: null
+  train_eps: null
+  use_cosine_loss: true
+  use_lognorm: true
+  lognorm_mu: -0.5
+  lognorm_sigma: 1.25
+vae:
+  downsample_ratio: 16
+  model_name: vtp
+  hf_model_path: /path/to/pretrained/vtp-s-hf # 4. vtp hf model path, modify before training
+  normalize_type: imagenet
+  per_proc_batch_size: 50

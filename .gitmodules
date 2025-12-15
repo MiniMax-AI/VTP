@@ -1,0 +1,3 @@
+[submodule "LightningDiT"]
+	path = LightningDiT
+	url = https://github.com/JingfengYao/LightningDiT
