@@ -22,23 +22,20 @@
 
 ## Takeaways
 
-<div align="center">
-
-**Same FLOPs in DiT Training, VTP scaling helps better generation.**
-
-</div>
 
 By integrating contrastive, self-supervised, and reconstruction learning, we have trained numerous visual tokenizers from scratch. We are seeking to unveil the novel scalability interlinking understanding, generation, and reconstruction.
 
-<div align="center">
-<img src="figures/scaling_v2.png" alt="Overview Figure" width="900"/>
-</div>
+- **Same FLOPs in DiT Training, VTP scaling helps better generation.**
 
 - **Traditional auto-encoders CANNOT be scaled up for diffusion generative models.**
 
 - **Understanding is the key driver for improving the learnability scaling.**
 
 - **Parameter, data and training scalability can be seen while representation learning involved.** 
+
+<div align="center">
+<img src="figures/scaling_v2.png" alt="Overview Figure" width="900"/>
+</div>
 
 ## Get Checkpoints
 
