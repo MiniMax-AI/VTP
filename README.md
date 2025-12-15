@@ -20,7 +20,7 @@
 
 - **[2025.12.16]** We release our technical report in ArXiv. Weights will be released very soon.
 
-## Taken-Aways
+## Takeaways
 
 <div align="center">
 
@@ -36,15 +36,14 @@ By integrating contrastive, self-supervised, and reconstruction learning, we hav
 
 - **Traditional Auto-Encoders CANNOT be scaled up for diffusion generative models.**
 
-- **Understanding is the key driver for improving the learnablity scaling.**
+- **Understanding is the key driver for improving the learnability scaling.**
 
-- **Parameter, data and training scalablity are be seen while representation learning involved.** 
+- **Parameter, data and training scalability can be seen while representation learning involved.** 
 
 ## Get Checkpoints
 
-| Checkpoints |  |  | |
+| Checkpoints | [VTP-S/16](pretrained/vtp-s-hf) | [VTP-B/16](pretrained/vtp-b-hf) | [VTP-L/16](pretrained/vtp-l-hf) |
 |-------|-------|-------|-------|
-| Models | [VTP-S/16](pretrained/vtp-s-hf) | [VTP-B/16](pretrained/vtp-b-hf) | [VTP-L/16](pretrained/vtp-l-hf) |
 
 Weights will be released very soon.
 
@@ -94,7 +93,7 @@ Image.fromarray((recon_image * 255).astype("uint8")).save("output/reconstructed.
 
 
 # ---------------------------------------------------------------------------------------
-# use it as clip； zero-shot 78.2
+# use it as clip; zero-shot 78.2
 # ---------------------------------------------------------------------------------------
 tokenizer = get_tokenizer('ViT-B-32', context_length=model.config.text_context_length)
 text = tokenizer(["a diagram", "a dog", "a cat", "a person"])
@@ -175,6 +174,7 @@ We present visual tokenizer pre-training, **VTP**, a unified visual tokenizer pr
 ```bash
 conda create -n vtp python=3.10
 conda activate vtp
+git submodule update --init --recursive
 pip install -r requirements.txt
 ```
 
@@ -205,23 +205,23 @@ We use [LightningDiT](https://github.com/hustvl/LightningDiT) codes to evaluate 
 
 Feature extraction:
 ```
-bash generation/scripts/extract_features_vtp.sh generation/configs/train_vtp_b_dit_b.yaml
+bash generation/scripts/extract_features_vtp.sh generation/configs/train_vtp_l_dit_xl.yaml
 ```
 
 LightningDiT training:
 ```
-bash generation/scripts/train_lightningdit_vtp.sh generation/configs/train_vtp_b_dit_b.yaml
+bash generation/scripts/train_lightningdit_vtp.sh generation/configs/train_vtp_l_dit_xl.yaml
 ```
 
 
 LightningDiT sampling:
 ```
-bash generation/scripts/inference_lightningdit_vtp.sh generation/configs/train_vtp_b_dit_b.yaml
+bash generation/scripts/inference_lightningdit_vtp.sh generation/configs/train_vtp_l_dit_xl.yaml
 ```
 
 ## Acknowledgements
 
-Our pre-training codes are bulit upon [OpenCLIP](https://github.com/mlfoundations/open_clip) and [DINOv2](https://github.com/facebookresearch/dinov2). Our final model variant uses [DINOv3](https://github.com/facebookresearch/dinov3) architecture. 
+Our pre-training codes are built upon [OpenCLIP](https://github.com/mlfoundations/open_clip) and [DINOv2](https://github.com/facebookresearch/dinov2). Our final model variant uses [DINOv3](https://github.com/facebookresearch/dinov3) architecture. 
 
 We use [LightningDiT](https://github.com/hustvl/LightningDiT) for generation evaluation. 
 
