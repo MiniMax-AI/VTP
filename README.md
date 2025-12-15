@@ -24,7 +24,7 @@
 
 <div align="center">
 
-**Same FLOPs in DiT Training, VTP Scaling helps better generation.**
+**Same FLOPs in DiT Training, VTP scaling helps better generation.**
 
 </div>
 
@@ -34,7 +34,7 @@ By integrating contrastive, self-supervised, and reconstruction learning, we hav
 <img src="figures/scaling_v2.png" alt="Overview Figure" width="900"/>
 </div>
 
-- **Traditional Auto-Encoders CANNOT be scaled up for diffusion generative models.**
+- **Traditional auto-encoders CANNOT be scaled up for diffusion generative models.**
 
 - **Understanding is the key driver for improving the learnability scaling.**
 
@@ -42,8 +42,11 @@ By integrating contrastive, self-supervised, and reconstruction learning, we hav
 
 ## Get Checkpoints
 
-| Checkpoints | [VTP-S/16](pretrained/vtp-s-hf) | [VTP-B/16](pretrained/vtp-b-hf) | [VTP-L/16](pretrained/vtp-l-hf) |
-|-------|-------|-------|-------|
+| Checkpoints |
+|-------|
+| [VTP-S/16](pretrained/vtp-s-hf) |
+| [VTP-B/16](pretrained/vtp-b-hf) |
+| [VTP-L/16](pretrained/vtp-l-hf) |
 
 Weights will be released very soon.
 
@@ -161,7 +164,7 @@ The quality of the latent space in visual tokenizers (e.g., VAEs) is crucial for
 This implies that pouring extensive compute into visual tokenizer pre-training translates poorly to improved performance in generation. 
 
 We identify this as the **"pre-training scaling problem"** and suggest a necessary shift: to be effective for generation, a latent space must concisely represent high-level semantics. 
-We present visual tokenizer pre-training, **VTP**, a unified visual tokenizer pre-training framework, pioneering the joint optimization of image-text contrastive, self-supervised, and reconstruction losses. Our large-scale study reveals two principal findings: (1) understanding is a key driver of generation, and (2) much better scaling properties, where generative performance scales effectively with compute, parameters, and data allocated to the pretraining of the visual tokenizer. After large-scale pre-training, our tokenizer delivers a competitive profile (78.2 zero-shot accuracy, 0.36 rFID) and 3× faster convergence on generation compared to advanced distillation methods. More importantly, it scales effectively: without modifying standard DiT training specs, solely investing more FLOPS in pretraining VTP achieves 65.8\% FID improvement in downstream generation, while conventional autoencoder stagnates very early at 1/10 FLOPS. Our pre-trained models will be open-sourced.
+We present visual tokenizer pre-training, **VTP**, a unified visual tokenizer pre-training framework, pioneering the joint optimization of image-text contrastive, self-supervised, and reconstruction losses. Our large-scale study reveals two principal findings: (1) understanding is a key driver of generation, and (2) much better scaling properties, where generative performance scales effectively with compute, parameters, and data allocated to the pretraining of the visual tokenizer. After large-scale pre-training, our tokenizer delivers a competitive profile (78.2 zero-shot accuracy, 0.36 rFID) and 3× faster convergence on generation compared to advanced distillation methods. More importantly, it scales effectively: without modifying standard DiT training specs, solely investing more FLOPS in pretraining VTP achieves 65.8\% FID improvement in downstream generation, while conventional autoencoder stagnates very early at 1/10 FLOPS.
 
 <div align="center">
 <img src="figures/overview.png" alt="Overview Figure" width="900"/>
@@ -182,7 +185,7 @@ pip install -r requirements.txt
 
 Modify the corresponding paths in ``scripts/test_zero_shot_hf.sh``. Run:
 ```
-bash scripts/test_zero_shot_hf.sh
+bash scripts/test_zero_shot_hf.sh 
 ```
 
 #### Linear Probing Classification
