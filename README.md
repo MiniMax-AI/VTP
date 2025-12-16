@@ -21,7 +21,7 @@
 
 ## News
 
-- **[2025.12.16]** We release our [technical report](https://arxiv.org/abs/2512.13687) in ArXiv. Weights will be released very soon.
+- **[2025.12.16]** We have released our [technical report](https://arxiv.org/abs/2512.13687) and [pretrained weights](#get-checkpoints).
 
 ## Takeaways
 
@@ -44,9 +44,9 @@ By integrating contrastive, self-supervised, and reconstruction learning, we hav
 
 | Checkpoints |
 |-------|
-| [VTP-S/16](pretrained/vtp-s-hf) |
-| [VTP-B/16](pretrained/vtp-b-hf) |
-| [VTP-L/16](pretrained/vtp-l-hf) |
+| [![VTP-S-f16d64](https://img.shields.io/badge/🤗_HuggingFace-VTP--S--f16d64-FFD21E?style=flat-square&labelColor=2C3E50)](https://huggingface.co/MiniMaxAI/VTP-Small-f16d64) |
+| [![VTP-B-f16d64](https://img.shields.io/badge/🤗_HuggingFace-VTP--B--f16d64-FFD21E?style=flat-square&labelColor=2C3E50)](https://huggingface.co/MiniMaxAI/VTP-Base-f16d64) |
+| [![VTP-L-f16d64](https://img.shields.io/badge/🤗_HuggingFace-VTP--L--f16d64-FFD21E?style=flat-square&labelColor=2C3E50)](https://huggingface.co/MiniMaxAI/VTP-Large-f16d64) |
 
 Weights will be released very soon.
 
@@ -65,7 +65,7 @@ from torchvision import transforms
 from vtp.models.vtp_hf import VTPConfig, VTPModel
 from vtp.tokenizers import get_tokenizer
 
-model = VTPModel.from_pretrained("pretrained/vtp-l-hf")
+model = VTPModel.from_pretrained("/path/to/MiniMaxAI/VTP-Large-f16d64")
 model.eval()
 
 # print model parameters
