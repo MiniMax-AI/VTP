@@ -87,7 +87,7 @@ preprocess = transforms.Compose([
 image = preprocess(Image.open("figures/dog.png")).unsqueeze(0)
 
 # ---------------------------------------------------------------------------------------
-# use it as auto-encoder; rFID=0.36
+# use it as an auto-encoder; rFID=0.36
 # ---------------------------------------------------------------------------------------
 denormalize = transforms.Normalize(
     mean=[-0.485/0.229, -0.456/0.224, -0.406/0.225],
@@ -101,7 +101,7 @@ Image.fromarray((recon_image * 255).astype("uint8")).save("output/reconstructed.
 
 
 # ---------------------------------------------------------------------------------------
-# use it as clip; zero-shot 78.2
+# use it as a clip; zero-shot 78.2
 # ---------------------------------------------------------------------------------------
 tokenizer = get_tokenizer('ViT-B-32', context_length=model.config.text_context_length)
 text = tokenizer(["a diagram", "a dog", "a cat", "a person"])
@@ -112,7 +112,7 @@ with torch.no_grad(), torch.autocast("cuda"):
 print("Label probs:", [f"{p:.4f}" for p in text_probs[0].tolist()])
 
 # ---------------------------------------------------------------------------------------
-# use it as ssl feature extractor; linear probing 85.7
+# use it as an ssl feature extractor; linear probing 85.7
 # ---------------------------------------------------------------------------------------
 with torch.no_grad(), torch.autocast("cuda"):
     # get last layer features (cls token + patch tokens)
