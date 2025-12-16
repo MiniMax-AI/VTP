@@ -13,12 +13,12 @@
 ***Work still in Progress.***
 
 
-[![arXiv](https://img.shields.io/badge/paper-VTP-FF4040?style=flat-square&labelColor=2C3E50)](https://arxiv.org/abs/2512.13687)
-[![GitHub](https://img.shields.io/badge/GitHub-VTP-181717?style=flat-square&labelColor=2C3E50)](https://github.com/MiniMax-AI/VTP)
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-VTP-FFD21E?style=flat-square&labelColor=2C3E50)](https://huggingface.co/MiniMaxAI/VTP-Large-f16d64)
-[![MiniMax](https://img.shields.io/badge/MiniMax-Official-FF4040?style=flat-square&labelColor=2C3E50)](https://www.minimax.io/)
-[![Hailuo](https://img.shields.io/badge/Hailuo--Video-Official-FF4040?style=flat-square&labelColor=2C3E50)](https://www.minimax.io/news/minimax-hailuo-23)
-[![HUSTVL](https://img.shields.io/badge/HUSTVL-Official-4285F4?style=flat-square&labelColor=2C3E50)](https://github.com/hustvl)
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-VTP-2C3E50?style=flat-square&labelColor=FFD21E)](https://huggingface.co/MiniMaxAI/VTP-Large-f16d64)
+[![GitHub](https://img.shields.io/badge/GitHub-VTP-2C3E50?style=flat-square&labelColor=FFD21E)](https://github.com/MiniMax-AI/VTP)
+[![arXiv](https://img.shields.io/badge/paper-VTP-2C3E50?style=flat-square&labelColor=FF4040)](https://arxiv.org/abs/2512.13687)
+[![MiniMax](https://img.shields.io/badge/MiniMax-Official-2C3E50?style=flat-square&labelColor=FF4040)](https://www.minimax.io/)
+[![Hailuo](https://img.shields.io/badge/Hailuo--Video-Official-2C3E50?style=flat-square&labelColor=FF4040)](https://www.minimax.io/news/minimax-hailuo-23)
+[![HUSTVL](https://img.shields.io/badge/HUSTVL-Official-2C3E50?style=flat-square&labelColor=4285F4)](https://github.com/hustvl)
 
 <img src="figures/abs.png" alt="Abstract Figure" width="900"/>
 
