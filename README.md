@@ -13,7 +13,7 @@
 ***Work still in Progress.***
 
 
-[![arXiv](https://img.shields.io/badge/arXiv-VTP-b31b1b.svg)](https://arxiv.org/abs/2512.13687)
+[![arXiv](https://img.shields.io/badge/📖_paper-VTP-FF4040?style=flat-square&labelColor=2C3E50)](https://arxiv.org/abs/2512.13687)
 
 <img src="figures/abs.png" alt="Abstract Figure" width="900"/>
 
