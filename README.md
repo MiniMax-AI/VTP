@@ -12,13 +12,16 @@
 
 ***Work still in Progress.***
 
+
+[![arXiv](https://img.shields.io/badge/arXiv-VTP-b31b1b.svg)](https://arxiv.org/abs/2512.13687)
+
 <img src="figures/abs.png" alt="Abstract Figure" width="900"/>
 
 </div>
 
 ## News
 
-- **[2025.12.16]** We release our technical report in ArXiv. Weights will be released very soon.
+- **[2025.12.16]** We release our [technical report](https://arxiv.org/abs/2512.13687) in ArXiv. Weights will be released very soon.
 
 ## Takeaways
 
@@ -228,6 +231,15 @@ We use [LightningDiT](https://github.com/hustvl/LightningDiT) for generation eva
 Thanks for their great codes.
 
 ## Citation
+
+```bibtex
+@article{vtp,
+  title={Towards Scalable Pre-training of Visual Tokenizers for Generation},
+  author={Yao, Jingfeng and Song, Yuda and Zhou, Yucong and Wang, Xinggang},
+  journal={arXiv preprint arXiv:2512.13687},
+  year={2025}
+}
+```
 
 ## Contact Us
 
