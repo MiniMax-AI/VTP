@@ -16,6 +16,7 @@
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-VTP-2C3E50?style=flat-square&labelColor=FFD21E)](https://huggingface.co/MiniMaxAI/VTP-Large-f16d64)
 [![GitHub](https://img.shields.io/badge/GitHub-VTP-2C3E50?style=flat-square&labelColor=FFD21E)](https://github.com/MiniMax-AI/VTP)
 [![arXiv](https://img.shields.io/badge/paper-VTP-2C3E50?style=flat-square&labelColor=FF4040)](https://arxiv.org/abs/2512.13687)
+[![WeChat](https://img.shields.io/badge/WeChat-Blog-2C3E50?style=flat-square&labelColor=07C160)](https://mp.weixin.qq.com/s/GTeKG1GOCyUVbEeWXbGktw)
 [![MiniMax](https://img.shields.io/badge/MiniMax-Official-2C3E50?style=flat-square&labelColor=FF4040)](https://www.minimax.io/)
 [![Hailuo](https://img.shields.io/badge/Hailuo--Video-Official-2C3E50?style=flat-square&labelColor=FF4040)](https://www.minimax.io/news/minimax-hailuo-23)
 [![HUSTVL](https://img.shields.io/badge/HUSTVL-Official-2C3E50?style=flat-square&labelColor=4285F4)](https://github.com/hustvl)
@@ -25,6 +26,8 @@
 </div>
 
 ## News
+
+- **[2025.03.09]** We have updated our technical report with more experimental results.
 
 - **[2025.12.16]** We have released our [technical report](https://arxiv.org/abs/2512.13687) and [pretrained weights](#get-checkpoints).
 
@@ -134,6 +137,7 @@ with torch.no_grad(), torch.autocast("cuda"):
 
 ## Performance
 
+<!--
 <table>
   <tr>
     <th rowspan="2">Model</th>
@@ -161,15 +165,24 @@ with torch.no_grad(), torch.autocast("cuda"):
   <tr><td><b>VTP-B-f16d64 (ours)</b></td><td style="text-align: center;">73.2</td><td style="text-align: center;">81.0</td><td style="text-align: center;">0.74</td><td style="text-align: center;">3.88</td></tr>
   <tr><td><b>VTP-L-f16d64 (ours)</b></td><td style="text-align: center;">78.2</td><td style="text-align: center;">85.7</td><td style="text-align: center;">0.36</td><td style="text-align: center;"><strong>2.81</strong></td></tr>
 </table>
+-->
+
+<div align="center">
+<img src="figures/performance.png" alt="Performance" width="900"/>
+</div>
 
 
 ## Introduction
 
-The quality of the latent space in visual tokenizers (e.g., VAEs) is crucial for modern generative models. However, the standard reconstruction-based training paradigm produces a latent space that is biased towards low-level information, leading to a foundation flaw: better pixel-level accuracy does not lead to higher-quality generation. 
-This implies that pouring extensive compute into visual tokenizer pre-training translates poorly to improved performance in generation. 
+The quality of the latent space in visual tokenizers (e.g., VAEs) is crucial for modern generative models. However, the standard reconstruction-based training paradigm produces a latent space that is biased towards low-level information, leading to a foundational flaw: better pixel-level reconstruction accuracy does not lead to higher-quality generation.
+This implies that pouring extensive compute into visual tokenizer pre-training translates poorly to improved performance in generation.
+We identify this as the **"pre-training scaling problem"** and suggest a necessary shift: to be effective for generation, a latent space must concisely represent high-level semantics.
 
-We identify this as the **"pre-training scaling problem"** and suggest a necessary shift: to be effective for generation, a latent space must concisely represent high-level semantics. 
-We present visual tokenizer pre-training, **VTP**, a unified visual tokenizer pre-training framework, pioneering the joint optimization of image-text contrastive, self-supervised, and reconstruction losses. Our large-scale study reveals two principal findings: (1) understanding is a key driver of generation, and (2) much better scaling properties, where generative performance scales effectively with compute, parameters, and data allocated to the pretraining of the visual tokenizer. After large-scale pre-training, our tokenizer delivers a competitive profile (78.2 zero-shot accuracy, 0.36 rFID) and 3× faster convergence on generation compared to advanced distillation methods. More importantly, it scales effectively: without modifying standard DiT training specs, solely investing more FLOPS in pretraining VTP achieves 65.8\% FID improvement in downstream generation, while conventional autoencoder stagnates very early at 1/10 FLOPS.
+We present **VTP**, a unified visual tokenizer pre-training framework, pioneering the joint optimization of image-text contrastive, self-supervised, and reconstruction losses. Our study reveals that **perception-oriented tokenizer pre-training unlocks a new scaling law for generation**, where generative performance scales effectively with compute, parameters, and data allocated to the pre-training of the visual tokenizer.
+Our large-scale pre-training experiments demonstrate the following results:
+(1) Without modifying DiT training specs and FLOPs, solely scaling VTP pre-training consistently achieves gains in both ImageNet class-conditional and LAION text-to-image generation, while conventional autoencoders stagnate very early at 1/10 of the FLOPs.
+(2) VTP achieves 0.36 rFID while simultaneously delivering 78.2% zero-shot accuracy and 85.7% linear probing accuracy, surpassing prior unified tokenizers such as VILA-U and UniTok.
+(3) Furthermore, the VTP-based diffusion model exhibits exceptionally fast convergence---reaching 2.03 gFID in only 80 epochs without guidance tricks, outperforming previous methods like VA-VAE and RAE---and ultimately scales to achieve a remarkable **1.11 gFID** on ImageNet 256×256 generation.
 
 <div align="center">
 <img src="figures/overview.png" alt="Overview Figure" width="900"/>
